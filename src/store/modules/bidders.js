@@ -1,4 +1,6 @@
 import {instance}  from '../../axios'
+import { normalize, schema } from 'normalizr';
+
 
 const state =  {
     bidderPodsList : [],
@@ -33,58 +35,141 @@ const actions = {
 //     //console.log(error);
 //   });
             //.catch("dd")
-let json = [
-  {
-    "name": "sd2",
-    "status": "RED",
-    "machines": [
-      {
-        "hostName": "asd654.sd.pl.pvt",
-        "overallStatus": "RED_FLAG",
-        "summary": {
-          "RED_FLAG": [
-            {
-              "name": "crosswalk read fail rate",
-              "summary": "Crosswalk Read Fail Rate",
-              "url": "http://asd654:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk8806286908258231fx"
-            }
-          ]
-        }
-      },
-      {
-        "hostName": "asd650.sd.pl.pvt",
-        "overallStatus": "YELLOW_FLAG",
-        "summary": {
-          "YELLOW_FLAG": [
-            {
-              "name": "crosswalk read fail rate",
-              "summary": "Crosswalk Read Fail Rate",
-              "url": "http://asd650:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk-15679785739988871fx"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "name": "eq1",
-    "status": "GREEN",
-    "machines": [
-      {
-        "hostName": "aeq1030.eq.pl.pvt",
-        "overallStatus": "GREEN_FLAG",
-        "summary": {}
-      }
-    ]
-  }
-];
 
-//console.log("normalizedData");
-const normalizedData = normalize(json, biddersSchema);
-//console.log(normalizedData);
- const out = JSON.stringify(normalizedData, null, 2);
-// console.log(out)
- 
+const machineSchema = new schema.Entity('machines', {}, {
+    idAttribute: (value, parent, key) => {
+      //console.log(parent);
+      return value.hostName + '-' + parent.applicationName;
+    }
+  });
+
+  //const machineList = new schema.Array(machineSchema);
+
+  const podSchema = new schema.Entity('pods', {
+    machines: [machineSchema]
+  }, { idAttribute: (value, parent, key) => value.name + '-' + value.applicationName });
+
+  const productSchema = new schema.Entity('products', {
+    details: [podSchema]
+  }, { idAttribute: 'name' });
+
+  //const biddersSchema = new schema.Array(podSchema);
+  const biddersSchema = new schema.Array(productSchema);
+
+
+
+
+  let json = [
+    {
+      "name": "bidders",
+      "details": [
+        {
+          "name": "sd2",
+          "applicationName": "bidders",
+          "status": "RED",
+          "machines": [
+            {
+              "hostName": "asd654.sd.pl.pvt",
+              "overallStatus": "RED_FLAG",
+              "summary": {
+                "RED_FLAG": [
+                  {
+                    "name": "crosswalk read fail rate",
+                    "summary": "Crosswalk Read Fail Rate",
+                    "url": "http://asd654:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk8806286908258231fx"
+                  }
+                ]
+              }
+            },
+            {
+              "hostName": "asd650.sd.pl.pvt",
+              "overallStatus": "YELLOW_FLAG",
+              "summary": {
+                "YELLOW_FLAG": [
+                  {
+                    "name": "crosswalk read fail rate",
+                    "summary": "Crosswalk Read Fail Rate",
+                    "url": "http://asd650:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk-15679785739988871fx"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "eq1",
+          "status": "GREEN",
+          "applicationName": "bidders",
+          "machines": [
+            {
+              "hostName": "aeq1030.eq.pl.pvt",
+              "overallStatus": "GREEN_FLAG",
+              "summary": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scorers",
+      "details": [
+        {
+          "name": "sd2",
+          "status": "RED",
+          "applicationName": "scorers",
+          "machines": [
+            {
+              "hostName": "asd654.sd.pl.pvt",
+              "overallStatus": "RED_FLAG",
+              "summary": {
+                "RED_FLAG": [
+                  {
+                    "name": "crosswalk read fail rate",
+                    "summary": "Crosswalk Read Fail Rate",
+                    "url": "http://asd654:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk8806286908258231fx"
+                  }
+                ]
+              }
+            },
+            {
+              "hostName": "asd650.sd.pl.pvt",
+              "overallStatus": "YELLOW_FLAG",
+              "summary": {
+                "YELLOW_FLAG": [
+                  {
+                    "name": "crosswalk read fail rate",
+                    "summary": "Crosswalk Read Fail Rate",
+                    "url": "http://asd650:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk-15679785739988871fx"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "eq1",
+          "status": "GREEN",
+          "applicationName": "scorers",
+          "machines": [
+            {
+              "hostName": "aeq1030.eq.pl.pvt",
+              "overallStatus": "GREEN_FLAG",
+              "summary": {}
+            }
+          ]
+        }
+      ]
+    }
+  ];
+  //console.log("normalizedData");
+  const normalizedData = normalize(json, biddersSchema);
+  //console.log(normalizedData);
+  const out = JSON.stringify(normalizedData, null, 2);
+  console.log(out);
+
+
+
+
 console.log("pods");
 console.log(normalizedData.entities.pods);
 commit('SET_PODS', normalizedData.entities.pods);
@@ -117,75 +202,9 @@ console.log("Fd")
 
 // 'use strict';
 
-import { normalize, schema } from 'normalizr';
 
 
-const machineSchema = new schema.Entity('machines', {}, {idAttribute: 'hostName'});
-//const machineList = new schema.Array(machineSchema);
 
-const podSchema = new schema.Entity('pods', {
-    machines :  [ machineSchema ]
-},{ idAttribute: 'name' });
-
-const biddersSchema = new schema.Array(podSchema);
-
-
-// podSchema.define({
-//     machines: arrayOf(machineSchema)
-// });
-
-let json = [
-  {
-    "podName": "sd2",
-    "podStatus": "GREY_FLAG",
-    "machines": [
-      {
-        "hostName": "asd654.sd.pl.pvt",
-        "overallStatus": "RED_FLAG",
-        "summary": {
-          "RED_FLAG": [
-            {
-              "name": "crosswalk read fail rate",
-              "summary": "Crosswalk Read Fail Rate",
-              "url": "http://asd654:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk8806286908258231fx"
-            }
-          ]
-        }
-      },
-      {
-        "hostName": "asd650.sd.pl.pvt",
-        "overallStatus": "YELLOW_FLAG",
-        "summary": {
-          "YELLOW_FLAG": [
-            {
-              "name": "crosswalk read fail rate",
-              "summary": "Crosswalk Read Fail Rate",
-              "url": "http://asd650:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk-15679785739988871fx"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "podName": "eq1",
-    "podStatus": "GREY_FLAG",
-    "machines": [
-      {
-        "hostName": "aeq1030.eq.pl.pvt",
-        "overallStatus": "GREEN_FLAG",
-        "summary": {}
-      }
-    ]
-  }
-];
-
-// console.log("normalizedData");
-// const normalizedData = normalize(json, biddersSchema);
-// console.log(normalizedData);
-//  const out = JSON.stringify(normalizedData, null, 2);
-//  console.log(out)
- 
 
 
 const getters = {
