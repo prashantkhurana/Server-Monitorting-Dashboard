@@ -165,17 +165,17 @@ const machineSchema = new schema.Entity('machines', {}, {
   const normalizedData = normalize(json, biddersSchema);
   //console.log(normalizedData);
   const out = JSON.stringify(normalizedData, null, 2);
-  console.log(out);
+  //console.log(out);
 
 
 
 
-console.log("pods");
-console.log(normalizedData.entities.pods);
+//console.log("pods");
+//console.log(normalizedData.entities.pods);
 commit('SET_PODS', normalizedData.entities.pods);
 commit('SET_MACHINES', normalizedData.entities.machines);
-console.log("all machines");
-console.log(normalizedData.entities.machines);
+//console.log("all machines");
+//console.log(normalizedData.entities.machines);
 
 
 
