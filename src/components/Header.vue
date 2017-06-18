@@ -27,22 +27,24 @@
 
 <script lang="ts">
     import Vue from "vue";
+    //import
     //import store from './../store';
     import Component from 'vue-class-component';
     //import $ from 'materialize-css'
+    //import $store from 'vue';
 
     @Component
     export default class Header extends Vue {
         get subHeaderNames() {
           //console.log("in header vue file");
           //console.log(this.$store.state.header.subHeaderNames);
-          return this.$store.state.header.subHeaderNames;
+          return this['$store'].state.header.subHeaderNames;
         }
 
         get headerNames() {
           //console.log("in header vue file");
           //console.log(this.$store.state.header.headerNames);
-          return this.$store.state.header.headerNames;
+          return this['$store'].state.header.headerNames;
         }
 //        computed: {
 ////            subHeaderNames() {
