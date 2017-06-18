@@ -29,9 +29,13 @@
     export default {
         computed: {
             subHeaderNames() {
+                console.log("in header vue file");
+                console.log(this.$store.state.header.subHeaderNames);
                 return this.$store.state.header.subHeaderNames;
             },
             headerNames() {
+              console.log("in header vue file");
+              console.log(this.$store.state.header.headerNames);
                 return this.$store.state.header.headerNames;
             }
         },
