@@ -13,6 +13,8 @@
     "test": "npm run unit && npm run e2e"
   },
   "dependencies": {
+    "@types/jquery": "^2.0.47",
+    "@types/materialize-css": "^0.98.3",
     "axios": "^0.16.2",
     "fuse.js": "^3.0.5",
     "normalizr": "^3.2.3",

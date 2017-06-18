@@ -25,20 +25,37 @@
 
 
 
-<script>
-    export default {
-        computed: {
-            subHeaderNames() {
-                console.log("in header vue file");
-                console.log(this.$store.state.header.subHeaderNames);
-                return this.$store.state.header.subHeaderNames;
-            },
-            headerNames() {
-              console.log("in header vue file");
-              console.log(this.$store.state.header.headerNames);
-                return this.$store.state.header.headerNames;
-            }
-        },
+<script lang="ts">
+    import Vue from "vue";
+    //import store from './../store';
+    import Component from 'vue-class-component';
+    //import $ from 'materialize-css'
+
+    @Component
+    export default class Header extends Vue {
+        get subHeaderNames() {
+          //console.log("in header vue file");
+          //console.log(this.$store.state.header.subHeaderNames);
+          return this.$store.state.header.subHeaderNames;
+        }
+
+        get headerNames() {
+          //console.log("in header vue file");
+          //console.log(this.$store.state.header.headerNames);
+          return this.$store.state.header.headerNames;
+        }
+//        computed: {
+////            subHeaderNames() {
+////                console.log("in header vue file");
+////                console.log(this.$store.state.header.subHeaderNames);
+////                return this.$store.state.header.subHeaderNames;
+////            },
+////            headerNames() {
+////              console.log("in header vue file");
+////              console.log(this.$store.state.header.headerNames);
+////                return this.$store.state.header.headerNames;
+////            }
+//        },
         updated () {
             $('ul.tabs').tabs();
         }

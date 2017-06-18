@@ -5,12 +5,18 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
   import Header from './components/Header.vue'
-  export default {
+  import Vue from "vue";
+  import Component from "vue-class-component";
+
+  @Component({
     components: {
-      appHeader: Header
-    },
+      "appHeader": Header
+    }
+  })
+
+  export  default class App extends Vue{
     beforeCreate () {
       this.$store.dispatch('init');
     }
