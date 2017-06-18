@@ -16,7 +16,10 @@
     "axios": "^0.16.2",
     "fuse.js": "^3.0.5",
     "normalizr": "^3.2.3",
+    "ts-loader": "^2.1.0",
+    "typescript": "^2.3.4",
     "vue": "^2.3.4",
+    "vue-class-component": "^5.0.1",
     "vue-router": "^2.6.0",
     "vuex": "^2.3.1"
   },
