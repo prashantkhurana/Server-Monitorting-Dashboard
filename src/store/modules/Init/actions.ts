@@ -8,7 +8,7 @@ export function init(store : ActionContext<InitState, any>) : void {
       {
         "name": "sd2",
         "applicationName": "bidders",
-        "status": "RED",
+        "status": "RED_FLAG",
         "machines": [
           {
             "hostName": "asd654.sd.pl.pvt",

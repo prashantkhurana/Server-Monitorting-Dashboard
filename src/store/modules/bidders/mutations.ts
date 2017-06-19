@@ -2,6 +2,9 @@ import {BidderState, Machines, Pods} from './state';
 import {Mutation, MutationTree}from 'vuex';
 
 export function SET_PODS(state : BidderState, pods : Pods) : void {
+  console.log("in set pods ");
+  console.log(pods);
+  
   state.podList = pods;
 }
 

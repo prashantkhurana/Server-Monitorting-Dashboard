@@ -31,6 +31,8 @@
 
   export default class BidderPods extends Vue {
     get bidderPods() : Pods {
+      console.log("in bidder pods");
+      console.log(this['$store'].state.bidders.podList);
       return this['$store'].state.bidders.podList;
     }
   }
