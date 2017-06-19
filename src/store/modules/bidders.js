@@ -36,6 +36,212 @@ const actions = {
 //   });
             //.catch("dd")
 
+      // let json = [
+      //   {
+      //     "name": "bidders",
+      //     "details": [
+      //       {
+      //         "name": "sd2",
+      //         "applicationName": "bidders",
+      //         "status": "RED",
+      //         "machines": [
+      //           {
+      //             "hostName": "asd654.sd.pl.pvt",
+      //             "overallStatus": "RED_FLAG",
+      //             "summary": {
+      //               "RED_FLAG": [
+      //                 {
+      //                   "name": "crosswalk read fail rate",
+      //                   "summary": "Crosswalk Read Fail Rate",
+      //                   "url": "http://asd654:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk8806286908258231fx"
+      //                 }
+      //               ]
+      //             }
+      //           },
+      //           {
+      //             "hostName": "asd650.sd.pl.pvt",
+      //             "overallStatus": "YELLOW_FLAG",
+      //             "summary": {
+      //               "YELLOW_FLAG": [
+      //                 {
+      //                   "name": "crosswalk read fail rate",
+      //                   "summary": "Crosswalk Read Fail Rate",
+      //                   "url": "http://asd650:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk-15679785739988871fx"
+      //                 }
+      //               ]
+      //             }
+      //           }
+      //         ]
+      //       },
+      //       {
+      //         "name": "eq1",
+      //         "status": "GREEN",
+      //         "applicationName": "bidders",
+      //         "machines": [
+      //           {
+      //             "hostName": "aeq1030.eq.pl.pvt",
+      //             "overallStatus": "GREEN_FLAG",
+      //             "summary": {}
+      //           }
+      //         ]
+      //       }
+      //     ]
+      //   },
+      //   {
+      //     "name": "scorers",
+      //     "details": [
+      //       {
+      //         "name": "sd2",
+      //         "status": "RED",
+      //         "applicationName": "scorers",
+      //         "machines": [
+      //           {
+      //             "hostName": "asd654.sd.pl.pvt",
+      //             "overallStatus": "RED_FLAG",
+      //             "summary": {
+      //               "RED_FLAG": [
+      //                 {
+      //                   "name": "crosswalk read fail rate",
+      //                   "summary": "Crosswalk Read Fail Rate",
+      //                   "url": "http://asd654:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk8806286908258231fx"
+      //                 }
+      //               ]
+      //             }
+      //           },
+      //           {
+      //             "hostName": "asd650.sd.pl.pvt",
+      //             "overallStatus": "YELLOW_FLAG",
+      //             "summary": {
+      //               "YELLOW_FLAG": [
+      //                 {
+      //                   "name": "crosswalk read fail rate",
+      //                   "summary": "Crosswalk Read Fail Rate",
+      //                   "url": "http://asd650:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk-15679785739988871fx"
+      //                 }
+      //               ]
+      //             }
+      //           }
+      //         ]
+      //       },
+      //       {
+      //         "name": "eq1",
+      //         "status": "GREEN",
+      //         "applicationName": "scorers",
+      //         "machines": [
+      //           {
+      //             "hostName": "aeq1030.eq.pl.pvt",
+      //             "overallStatus": "GREEN_FLAG",
+      //             "summary": {}
+      //           }
+      //         ]
+      //       }
+      //     ]
+      //   }
+      // ];
+      let json = {
+        "bidders" :{
+          "details": [
+            {
+              "name": "sd2",
+              "applicationName": "bidders",
+              "status": "RED",
+              "machines": [
+                {
+                  "hostName": "asd654.sd.pl.pvt",
+                  "overallStatus": "RED_FLAG",
+                  "summary": {
+                    "RED_FLAG": [
+                      {
+                        "name": "crosswalk read fail rate",
+                        "summary": "Crosswalk Read Fail Rate",
+                        "url": "http://asd654:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk8806286908258231fx"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "hostName": "asd650.sd.pl.pvt",
+                  "overallStatus": "YELLOW_FLAG",
+                  "summary": {
+                    "YELLOW_FLAG": [
+                      {
+                        "name": "crosswalk read fail rate",
+                        "summary": "Crosswalk Read Fail Rate",
+                        "url": "http://asd650:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk-15679785739988871fx"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "eq1",
+              "status": "GREEN",
+              "applicationName": "bidders",
+              "machines": [
+                {
+                  "hostName": "aeq1030.eq.pl.pvt",
+                  "overallStatus": "GREEN_FLAG",
+                  "summary": {}
+                }
+              ]
+            }
+          ]
+        },
+        "scorers" : {
+          "details": [
+            {
+              "name": "sd2",
+              "status": "RED",
+              "applicationName": "scorers",
+              "machines": [
+                {
+                  "hostName": "asd654.sd.pl.pvt",
+                  "overallStatus": "RED_FLAG",
+                  "summary": {
+                    "RED_FLAG": [
+                      {
+                        "name": "crosswalk read fail rate",
+                        "summary": "Crosswalk Read Fail Rate",
+                        "url": "http://asd654:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk8806286908258231fx"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "hostName": "asd650.sd.pl.pvt",
+                  "overallStatus": "YELLOW_FLAG",
+                  "summary": {
+                    "YELLOW_FLAG": [
+                      {
+                        "name": "crosswalk read fail rate",
+                        "summary": "Crosswalk Read Fail Rate",
+                        "url": "http://asd650:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk-15679785739988871fx"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "eq1",
+              "status": "GREEN",
+              "applicationName": "scorers",
+              "machines": [
+                {
+                  "hostName": "aeq1030.eq.pl.pvt",
+                  "overallStatus": "GREEN_FLAG",
+                  "summary": {}
+                }
+              ]
+            }
+          ]
+        }
+      }
+      //console.log("normalizedData");
+
+
+
 const machineSchema = new schema.Entity('machines', {}, {
     idAttribute: (value, parent, key) => {
       //console.log(parent);
@@ -59,109 +265,7 @@ const machineSchema = new schema.Entity('machines', {}, {
 
 
 
-  let json = [
-    {
-      "name": "bidders",
-      "details": [
-        {
-          "name": "sd2",
-          "applicationName": "bidders",
-          "status": "RED",
-          "machines": [
-            {
-              "hostName": "asd654.sd.pl.pvt",
-              "overallStatus": "RED_FLAG",
-              "summary": {
-                "RED_FLAG": [
-                  {
-                    "name": "crosswalk read fail rate",
-                    "summary": "Crosswalk Read Fail Rate",
-                    "url": "http://asd654:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk8806286908258231fx"
-                  }
-                ]
-              }
-            },
-            {
-              "hostName": "asd650.sd.pl.pvt",
-              "overallStatus": "YELLOW_FLAG",
-              "summary": {
-                "YELLOW_FLAG": [
-                  {
-                    "name": "crosswalk read fail rate",
-                    "summary": "Crosswalk Read Fail Rate",
-                    "url": "http://asd650:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk-15679785739988871fx"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "name": "eq1",
-          "status": "GREEN",
-          "applicationName": "bidders",
-          "machines": [
-            {
-              "hostName": "aeq1030.eq.pl.pvt",
-              "overallStatus": "GREEN_FLAG",
-              "summary": {}
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "scorers",
-      "details": [
-        {
-          "name": "sd2",
-          "status": "RED",
-          "applicationName": "scorers",
-          "machines": [
-            {
-              "hostName": "asd654.sd.pl.pvt",
-              "overallStatus": "RED_FLAG",
-              "summary": {
-                "RED_FLAG": [
-                  {
-                    "name": "crosswalk read fail rate",
-                    "summary": "Crosswalk Read Fail Rate",
-                    "url": "http://asd654:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk8806286908258231fx"
-                  }
-                ]
-              }
-            },
-            {
-              "hostName": "asd650.sd.pl.pvt",
-              "overallStatus": "YELLOW_FLAG",
-              "summary": {
-                "YELLOW_FLAG": [
-                  {
-                    "name": "crosswalk read fail rate",
-                    "summary": "Crosswalk Read Fail Rate",
-                    "url": "http://asd650:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk-15679785739988871fx"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "name": "eq1",
-          "status": "GREEN",
-          "applicationName": "scorers",
-          "machines": [
-            {
-              "hostName": "aeq1030.eq.pl.pvt",
-              "overallStatus": "GREEN_FLAG",
-              "summary": {}
-            }
-          ]
-        }
-      ]
-    }
-  ];
-  //console.log("normalizedData");
+
   const normalizedData = normalize(json, biddersSchema);
   //console.log(normalizedData);
   const out = JSON.stringify(normalizedData, null, 2);
@@ -185,11 +289,11 @@ commit('SET_MACHINES', normalizedData.entities.machines);
 
 const json2 = {"sd2":{"podStatus":"GREY_FLAG","bidderStatus":{"asd654.sd.pl.pvt":{"hostName":"asd654.sd.pl.pvt","overallStatus":"GREEN_FLAG","summary":{}},"asd650.sd.pl.pvt":{"hostName":"asd650.sd.pl.pvt","overallStatus":"GREEN_FLAG","summary":{}},"asd658.sd.pl.pvt":{"hostName":"asd658.sd.pl.pvt","overallStatus":"GREEN_FLAG","summary":{}}}},"eq1":{"podStatus":"GREY_FLAG","bidderStatus":{"aeq1030.eq.pl.pvt":{"hostName":"aeq1030.eq.pl.pvt","overallStatus":"GREEN_FLAG","summary":{}}}}};
 
-// console.log(normalize(json2));    
+// console.log(normalize(json2));
 
 
 console.log("Fd")
-// console.log(normalize(json));    
+// console.log(normalize(json));
 
         let pods = [
             { "id": "1", "name": "ad-s1", "status": "RED", "machines": [{ "name": "asd615", "status": "RED", "reason": "Geo Data" }, { "name": "asd616", "status": "RED", "reason": "Geo Data" }, { "name": "asd617", "status": "RED", "reason": "Geo Data" }, { "name": "asd618", "status": "RED", "reason": "Geo Data" }] },
@@ -237,7 +341,7 @@ const getters = {
     //     console.log("machineName");
     //     console.log(machineName);
     //     return state.machines[machineName].overallStatus;
-    // } 
+    // }
 }
 
 export default {
