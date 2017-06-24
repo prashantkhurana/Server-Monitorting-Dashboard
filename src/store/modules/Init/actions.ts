@@ -8,31 +8,30 @@ export function init(store : ActionContext<InitState, RootState>) : void {
     "bidders" :[
       {
         "name": "sd2",
-        "applicationName": "bidders",
         "status": "RED_FLAG",
         "machines": [
           {
-            "hostName": "asd654.sd.pl.pvt",
+            "hostName": "bidder1",
             "overallStatus": "RED_FLAG",
             "summary": {
               "RED_FLAG": [
                 {
-                  "name": "crosswalk read fail rate",
-                  "summary": "Crosswalk Read Fail Rate",
-                  "url": "http://asd654:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk8806286908258231fx"
+                  "name": "read from memcache fail",
+                  "summary": "Read from memcache failed",
+                  "url": "http://bidder1/memcache"
                 }
               ]
             }
           },
           {
-            "hostName": "asd650.sd.pl.pvt",
+            "hostName": "bidder2",
             "overallStatus": "YELLOW_FLAG",
             "summary": {
               "YELLOW_FLAG": [
                 {
-                  "name": "crosswalk read fail rate",
-                  "summary": "Crosswalk Read Fail Rate",
-                  "url": "http://asd650:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk-15679785739988871fx"
+                  "name": "casandra fail",
+                  "summary": "casandra fail",
+                  "url": "http://bidder2/cassandra"
                 }
               ]
             }
@@ -42,44 +41,42 @@ export function init(store : ActionContext<InitState, RootState>) : void {
       {
         "name": "eq1",
         "status": "GREEN",
-        "applicationName": "bidders",
         "machines": [
           {
-            "hostName": "aeq1030.eq.pl.pvt",
+            "hostName": "bidder3",
             "overallStatus": "GREEN_FLAG",
             "summary": {}
           }
         ]
       }
     ],
-    "scorers" : [
+    "mappers" : [
       {
         "name": "sd2",
         "status": "RED",
-        "applicationName": "scorers",
         "machines": [
           {
-            "hostName": "asd654.sd.pl.pvt",
+            "hostName": "mapper1",
             "overallStatus": "RED_FLAG",
             "summary": {
               "RED_FLAG": [
                 {
-                  "name": "crosswalk read fail rate",
-                  "summary": "Crosswalk Read Fail Rate",
-                  "url": "http://asd654:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk8806286908258231fx"
+                  "name": "sql fail",
+                  "summary": "sql fail",
+                  "url": "http://mapper1/sql"
                 }
               ]
             }
           },
           {
-            "hostName": "asd650.sd.pl.pvt",
+            "hostName": "mapper2",
             "overallStatus": "YELLOW_FLAG",
             "summary": {
               "YELLOW_FLAG": [
                 {
-                  "name": "crosswalk read fail rate",
-                  "summary": "Crosswalk Read Fail Rate",
-                  "url": "http://asd650:8080/adserv/dashboard?view=crosswalk read fail rate&type=json&token=7euk-15679785739988871fx"
+                  "name": "cassandra fail",
+                  "summary": "cassandra fail",
+                  "url": "http://mapper2/cassandra"
                 }
               ]
             }
@@ -89,10 +86,9 @@ export function init(store : ActionContext<InitState, RootState>) : void {
       {
         "name": "eq1",
         "status": "GREEN",
-        "applicationName": "scorers",
         "machines": [
           {
-            "hostName": "aeq1030.eq.pl.pvt",
+            "hostName": "mapper3",
             "overallStatus": "GREEN_FLAG",
             "summary": {}
           }
