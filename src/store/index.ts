@@ -19,3 +19,7 @@ export default new Vuex.Store({
     init: new Init()
   }
 })
+
+export class RootState {
+
+}

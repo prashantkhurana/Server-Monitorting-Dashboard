@@ -1,4 +1,9 @@
 export class State {
   public headerNames : string[];
-  public subHeaderNames : {name: string, action : string}[] = []
+  public subHeaderNames : SubHeaderName[] = []
+}
+
+export interface SubHeaderName {
+  name : string
+  action : string
 }

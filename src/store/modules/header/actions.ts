@@ -1,15 +1,16 @@
 import {ActionContext, ActionTree} from "vuex";
-import {State} from "./state";
+import {State, SubHeaderName} from "./state";
+import {RootState} from "../../index";
 
 
-export function setSubHeaderNames(store: ActionContext<State, any>, names: {name: string, action : string}[]) {
+export function setSubHeaderNames(context: ActionContext<State, RootState>, names: SubHeaderName[]) {
   console.log("called setsubheader action" + names.length);
   console.log(names);
-  store.commit('SET_NAME', names);
+  context.commit('SET_NAME', names);
 }
 
 
-export default <ActionTree<State, any>> {
+export default <ActionTree<State, RootState>> {
   setSubHeaderNames
 }
 

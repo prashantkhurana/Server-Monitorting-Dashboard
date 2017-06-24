@@ -2,7 +2,8 @@
 
 import {ActionContext, ActionTree} from "vuex";
 import {InitState} from "./State";
-export function init(store : ActionContext<InitState, any>) : void {
+import {RootState} from "../../index";
+export function init(store : ActionContext<InitState, RootState>) : void {
   let json  = {
     "bidders" :[
       {
@@ -108,6 +109,6 @@ export function init(store : ActionContext<InitState, any>) : void {
 }
 
 
-export let actions : ActionTree<InitState, any> = {
+export let actions : ActionTree<InitState, RootState> = {
   init
 }

@@ -1,19 +1,20 @@
 import {ActionContext, ActionTree} from "vuex";
 import {BidderState} from "./state";
 import {normalize, schema} from "normalizr";
+import {RootState} from "../../index";
 
 
-export function init(store: ActionContext<BidderState, any>, bidderStatusAsJson : string): void {
+export function init(context: ActionContext<BidderState, RootState>, bidderStatusAsJson : string): void {
   console.log("json in bidder inti is + ", bidderStatusAsJson);
   const normalizedData = normalize(bidderStatusAsJson, biddersSchema);
 
   const out = JSON.stringify(normalizedData, null, 2);
   console.log(out);
-  store.commit('SET_PODS', normalizedData.entities.pods);
-  store.commit('SET_MACHINES', normalizedData.entities.machines);
+  context.commit('SET_PODS', normalizedData.entities.pods);
+  context.commit('SET_MACHINES', normalizedData.entities.machines);
 }
 
-export let actions: ActionTree<BidderState, any> = {
+export let actions: ActionTree<BidderState, RootState> = {
   init
 }
 
