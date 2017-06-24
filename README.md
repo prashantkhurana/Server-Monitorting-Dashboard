@@ -1,30 +1,21 @@
-# checklist-frontend
+# Server-Monitorting-Dashboard
 
-> A Vue.js project
+Dashboard to monitors various servers. Using material design and vuejs.
 
-## Build Setup
+## Technologies Used
+1. [Vuejs](https://vuejs.org/)
+2. [Vuex](https://github.com/vuejs/vuex) for data management. 
+3. [Axios](https://github.com/mzabriskie/axios) for http calls.
+	* Http calls are not used as data is static for demonstration purposes. 
+	* The code exists but is commented out. 
+4. [Normalizr](https://github.com/paularmstrong/normalizr) for normlaizing data received from the backend. 
+	* There is no backend but the dummy data is not normalized so this is used as it would have been in prescence of a backend. 
+5. [Materialize](http://materializecss.com/) css library for material design.   
+6. [Vue-cli](https://github.com/vuejs/vue-cli) for generating the project template. 
 
-``` bash
-# install dependencies
-npm install
+For [TypeScript](https://www.typescriptlang.org/) see the typescript branch. All stores(vuex) and components(vue) and javascript is written in typescript there. 
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+## How to build and run	
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+npm install && npm run dev			
+```
