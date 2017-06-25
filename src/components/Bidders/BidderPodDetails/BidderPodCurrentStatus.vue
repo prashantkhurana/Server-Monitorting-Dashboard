@@ -4,13 +4,23 @@
   </div>
 </template>
 
-<script>
-    export default {
-        props: ['podName'],
-        computed: {
-            status() {
-                return this.$store.state.bidders.bidderPods[this.podName].status;
-            }
-        }
+<script lang="ts">
+  import Vue from "vue";
+  import Component from "vue-class-component";
+  import {STATUS_FLAG} from "../../../store/modules/bidders/state";
+
+  @Component({
+    props: {
+      podName: String
+    }
+  })
+
+
+  export default class  BidderPodCurrentStatus extends Vue {
+      podName : string;
+
+    get status() : STATUS_FLAG {
+      return this['$store'].state.bidders.podList[this.podName].status;
+    }
     }
 </script>

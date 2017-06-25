@@ -9,7 +9,7 @@ export interface Pods {
 }
 
 export interface PodDetails {
-  podName: string
+  name: string
   status: STATUS_FLAG
   machines: string[]
 }
@@ -20,7 +20,7 @@ export interface Machines {
 
 export interface Machine {
   hostName: string;
-  overallStatus: string;
+  overallStatus: STATUS_FLAG;
   summary: Summary
 }
 
@@ -34,7 +34,7 @@ export interface FlagReasons {
   url: string
 }
 
-enum STATUS_FLAG {
+export enum STATUS_FLAG {
   GREY_FLAG = "GREY_FLAG",
   GREEN_FLAG = "GREEN_FLAG",
   YELLOW_FLAG = "YELLOW_FLAG",

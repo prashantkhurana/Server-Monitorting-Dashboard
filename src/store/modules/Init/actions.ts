@@ -40,7 +40,7 @@ export function init(store : ActionContext<InitState, RootState>) : void {
       },
       {
         "name": "eq1",
-        "status": "GREEN",
+        "status": "GREEN_FLAG",
         "machines": [
           {
             "hostName": "bidder3",
@@ -98,10 +98,12 @@ export function init(store : ActionContext<InitState, RootState>) : void {
 
   };
 
-  for (var app in json) {
-    console.log(app);
-    store.dispatch('bidders/init', json[app], {root : true});
-  }
+  store.dispatch('bidders/init', json['bidders'], {root : true});
+
+  // for (var app in json) {
+  //   console.log(app);
+  //   store.dispatch('bidders/init', json[app], {root : true});
+  // }
 }
 
 
