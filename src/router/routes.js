@@ -1,6 +1,7 @@
 import BidderPods from '@/components/Bidders/BidderPods'
 import BiddersHome from '@/components/Bidders/BiddersHome'
-import AllBidders from '@/components/Bidders/AllBidders'
+ import AllBidders from './../components/Bidders/AllBidd'
+// import AllBidders from '@/components/Bidders/AllBidders'
 import BidderPodCurrentStatus from '@/components/Bidders/BidderPodDetails/BidderPodCurrentStatus'
 import BidderPodDetailsHome from '@/components/Bidders/BidderPodDetails/BidderPodDetailsHome'
 import BidderPodAllBidders from '@/components/Bidders/BidderPodDetails/BidderPodAllBidders'

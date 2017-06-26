@@ -15,7 +15,12 @@
   "dependencies": {
     "@types/jquery": "^2.0.47",
     "@types/materialize-css": "^0.98.3",
+    "awesome-typescript-loader": "^3.1.3",
     "axios": "^0.16.2",
+    "babel-helper-vue-jsx-merge-props": "^2.0.2",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.4.3",
+    "babel-preset-es2015": "^6.24.1",
     "fuse.js": "^3.0.5",
     "normalizr": "^3.2.3",
     "ts-loader": "^2.1.0",
@@ -23,6 +28,7 @@
     "vue": "^2.3.4",
     "vue-class-component": "^5.0.1",
     "vue-router": "^2.6.0",
+    "vue-ts-loader": "0.0.3",
     "vuex": "^2.3.1"
   },
   "devDependencies": {

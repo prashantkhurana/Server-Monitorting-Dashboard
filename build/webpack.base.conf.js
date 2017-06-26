@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.ts'
+    app: './src/main.tsx'
   },
   output: {
     path: config.build.assetsRoot,
@@ -19,7 +19,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json', '.ts'],
+    extensions: ['.js', '.vue', '.json', '.ts', '.tsx'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src')
@@ -35,6 +35,24 @@ module.exports = {
           appendTsSuffixTo: [/\.vue$/]
         }
       },
+      {
+        test: /\.tsx$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'awesome-typescript-loader',
+          options: {
+            useBabel: true,
+          },
+        },
+      },
+      // {
+      //   test: /\.tsx$/,
+      //   exclude: /node_modules|vue\/src/,
+      //   loader: 'awesome-typescript-loader',
+      //   options: {
+      //     appendTsSuffixTo: [/\.vue$/]
+      //   }
+      // },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
